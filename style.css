@@ -1,0 +1,28 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+footer{
+    margin: 10px;
+    padding: 5px 20px;
+    background-image: linear-gradient(to left , rgb(238, 234, 234), rgb(246, 92, 221)) ;
+    overflow:hidden
+
+   
+    }
+    header{
+        margin: 10px;
+        padding: 10px 20px;
+       
+
+        background-image: linear-gradient(to right , rgb(238, 234, 234), rgb(246, 92, 221)) ;
+        overflow:hidden
+       
+        
+    }
+    
+  a{
+    color: black;
+    
+}
