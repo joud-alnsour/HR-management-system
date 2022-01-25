@@ -15,12 +15,12 @@ if (this.Level ='Senior') {
   if (this.Level ='Mid-Senior') {
     let max =1500;
     let min =1000;
-       var midSenior= (Math.floor(Math.random() * (max - min) + min))*0.925;
+       var midSenior= (Math.floor(Math.random() * (max - min) + min))*0.075;
      };
      if (this.Level ='Mid-Senior') {
       let max =1000;
       let min =500;
-         var junior= (Math.floor(Math.random() * (max - min) + min))*0.925;
+         var junior= (Math.floor(Math.random() * (max - min) + min))*0.075;
        };
 const employee1 = new Employee(1000,'Ghazi Samer','Administration','Senior',senior);
 const employee2 = new Employee(1001,'Lana Ali','Finance','Senior',senior);
@@ -41,3 +41,5 @@ employee4.render();
 employee5.render();
 employee6.render();  
 employee7.render();
+let employeeform = document.getElementById('employeeinformation');
+employeeform.addEventListener('')
