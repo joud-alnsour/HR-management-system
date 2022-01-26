@@ -30,7 +30,7 @@ employeess.push(new Employee(1001,'Lana Ali','Finance','Senior',senior));
 employeess.push(new Employee(1002,'Tamara Ayoub','Marketing','Senior',senior));
 employeess.push(new Employee(1003,'Safi Walid','Administration','Mid-Senior',midSenior));
 employeess.push(new Employee(1004,'Omar Zaid','Development','Senior',senior));
-employeess.push(new Employee(1005,'Rana Saleh','Development','Junior',junior));employees.push(new Employee(1006,'Hadi Ahmad','Finance','Mid-Senior',midSenior);
+employeess.push(new Employee(1005,'Rana Saleh','Development','Junior',junior));employees.push(new Employee(1006,'Hadi Ahmad','Finance','Mid-Senior',midSenior));
 
 
 Employee.prototype.render = function (){
