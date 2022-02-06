@@ -1,10 +1,11 @@
 'use strict';
-function Employee (FullName,Department,Level){
+let idnumber = 1000;
+function Employee (FullName,Department,Level,ImageUrl = null){
     this.EmployeeID = id(idnumber);
     this.FullName = FullName;
     this.Department = Department;
     this.Level=Level;
-    //this.Image= Image`./images/${this.EmployeeID}.PNG`;
+    this.Image= Image`./images/${this.EmployeeID}.PNG`;
     this.Salary = 0
     Employee.all.push(this);
 }
@@ -25,17 +26,18 @@ if (this.Level ='Senior') {
        };
        Employee.all  = [];
        const employeess = [];
-employeess.push(new Employee(1000,'Ghazi Samer','Administration','Senior',senior));
-employeess.push(new Employee(1001,'Lana Ali','Finance','Senior',senior));
-employeess.push(new Employee(1002,'Tamara Ayoub','Marketing','Senior',senior));
-employeess.push(new Employee(1003,'Safi Walid','Administration','Mid-Senior',midSenior));
-employeess.push(new Employee(1004,'Omar Zaid','Development','Senior',senior));
-employeess.push(new Employee(1005,'Rana Saleh','Development','Junior',junior));employees.push(new Employee(1006,'Hadi Ahmad','Finance','Mid-Senior',midSenior));
+employeess.push(new Employee('Ghazi Samer','Administration','Senior','./pic/Ghazi.jpg'));
+employeess.push(new Employee('Lana Ali','Finance','Senior','./pic/Lana.jpg'));
+employeess.push(new Employee('Tamara Ayoub','Marketing','Senior','./pic/Tamara.jpg'));
+employeess.push(new Employee('Safi Walid','Administration','Mid-Senior','./pic/Safi.jpg'));
+employeess.push(new Employee('Omar Zaid','Development','Senior','./pic/Omar.jpg'));
+employeess.push(new Employee('Rana Saleh','Development','Junior','./pic/Rana.jpg'));
+employees.push(new Employee('Hadi Ahmad','Finance','Mid-Senior','./pic/Hadi.jpg'));
 
 
-Employee.prototype.render = function (){
-  document.write(`<p>${this.FullName} his salary is ${this.Salary}</p>`)
-}
+//Employee.prototype.render = function (){
+ // document.write(`<p>${this.FullName} his salary is ${this.Salary}</p>`)
+//}
 //employee1.render();
 //employee2.render();
 //employee3.render();
@@ -44,7 +46,7 @@ Employee.prototype.render = function (){
 //employee6.render();  
 //employee7.render();
 let employeeform = document.getElementById('employeeinformation');
-employeeform.addEventListener('')
+employeeform.addEventListener('submit', addemployeeform)
 
 function id(x) {
   let newid = x + 1;
@@ -52,10 +54,10 @@ function id(x) {
   return newid;
 }
 
-for (let index = 0; index < employeess.length; index++) {
+for (let i = 0; i < employeess.length; i++) {
 
-  employeess[index].netsalary();
-  console.log(employeess[index]);
+  employeess[i].netsalary();
+  console.log(employeess[i]);
 }
 
 
@@ -66,7 +68,7 @@ function render(){
   for (let i =0 ; i < Employee.all.length; i++){
     let employee = Employee.all[i];
  
-
+    mysection.style = 'display: flex; flex-wrap: wrap' ;
     let divEl = document.createElement('div');
     mysection.appendChild(divEl);
     divEl.style = 'padding: 15px; margin:10px; width:180px; height: 1fr; background-color: #7CFC00; display:flex; align-items: center; flex-direction: column';
@@ -108,14 +110,11 @@ function add (event){
   let Level = event.target.level.value;
   let ImageUrl = event.target.ImageUrl.value;
 
-  let newemployee = new Employee(FullName, Department,
-    Level,ImageUrl);
+  let newemployee = new Employee(FullName, Department,Level,ImageUrl);
   newemployee.netsalary();
   mysection.textContent = '';
   render();
   setting();
-   
-
   console.log(newemployee);
 }
 
