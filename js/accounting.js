@@ -1,5 +1,58 @@
-localStorage.getItem('employees');
 
+
+let marketingSalary = 0;
+let developmentSalary = 0;
+let finanaceSalary = 0;
+let adminSalary = 0;
+let totalSalary = 0;
+let adminEmployees = 0;
+let marketingEmployees = 0;
+let developmentEmployees = 0;
+let financeEmployees = 0;
+
+let info = localStorage.getItem('employees');  
+let parsObj = JSON.parse(info);
+if (parsObj !== null){
+  let allemployees = parsObj;
+
+  console.log(allemployees);
+  console.log(allemployees.length);
+  for (let i = 0; i <allemployees.length; i++) {
+
+    totalSalary += parseInt(allemployees[i].Salary);
+
+
+    switch (allemployees[i].Department) {
+    case 'Administration' :
+      adminSalary += parseInt(allemployees[i].Salary);
+      adminEmployees++;
+      break;
+
+    case 'Marketing':
+      marketingSalary += parseInt(allemployees[i].Salary);
+      marketingEmployees++;
+      break;
+    case 'Development':
+      developmentSalary += parseInt(allemployees[i].Salary);
+      developmentEmployees++;
+      break;
+    case 'Finance':
+      finanaceSalary += parseInt(allemployees[i].Salary);
+      financeEmployees++;
+      break;
+
+
+    }
+
+
+
+  }}
+let totalEmployees =  marketingEmployees + financeEmployees +developmentEmployees +adminEmployees;
+console.log(totalSalary);
+console.log(marketingEmployees);
+console.log(financeEmployees);
+console.log(developmentEmployees);
+console.log(adminEmployees);
 
 function render(){
 
@@ -44,18 +97,90 @@ function render(){
   let tdEl = document.createElement('td');
   tr1El.appendChild(tdEl);
   tdEl.textContent = 'Administration';
+  let t1dEl = document.createElement('td');
+  tr1El.appendChild(t1dEl);
+  t1dEl.textContent = ` ${adminEmployees}`;
+  t1dEl.style = 'text-align: center; display: table-cell;';   
+  let t2dEl = document.createElement('td');
+  tr1El.appendChild(t2dEl);
+  t2dEl.textContent = ` ${adminSalary}`;
+  t2dEl.style = 'text-align: center; display: table-cell;'; 
+  let t3dEl = document.createElement('td');
+  tr1El.appendChild(t3dEl);
+  t3dEl.textContent = ` ${adminSalary/adminEmployees}`;  
+  t3dEl.style = 'text-align: center; display: table-cell;';
+
+
   let td2El = document.createElement('td');
   tr2El.appendChild(td2El);
   td2El.textContent = 'Marketing';
+  let t4dEl = document.createElement('td');
+  tr2El.appendChild(t4dEl);
+  t4dEl.textContent = `${marketingEmployees}`;
+  t4dEl.style = 'text-align: center; display: table-cell;';  
+  let t5dEl = document.createElement('td');
+  tr2El.appendChild(t5dEl);
+  t5dEl.textContent = `${marketingSalary}`;
+  t5dEl.style = 'text-align: center; display: table-cell;'; 
+  let t6dEl = document.createElement('td');
+  tr2El.appendChild(t6dEl);
+  t6dEl.textContent = `${marketingSalary/marketingEmployees}`; 
+  t6dEl.style = 'text-align: center; display: table-cell;';
+
+
   let td3El = document.createElement('td');
   tr3El.appendChild(td3El);
   td3El.textContent = 'Development';
+  let t7dEl = document.createElement('td');
+  tr3El.appendChild(t7dEl);
+  t7dEl.textContent = `${developmentEmployees}`;
+  t7dEl.style = 'text-align: center; display: table-cell;';  
+  let t8dEl = document.createElement('td');
+  tr3El.appendChild(t8dEl);
+  t8dEl.textContent = `${developmentSalary.toFixed(0)}`;
+  t8dEl.style = 'text-align: center; display: table-cell;'; 
+  let t9dEl = document.createElement('td');
+  tr3El.appendChild(t9dEl);
+  t9dEl.textContent = `${(developmentSalary/developmentEmployees).toFixed(0)}`;  
+  t9dEl.style = 'text-align: center; display: table-cell;';
+
+
+
   let td4El = document.createElement('td');
   tr4El.appendChild(td4El);
   td4El.textContent = 'Finance';
+  let t10dEl = document.createElement('td');
+  tr4El.appendChild(t10dEl);
+  t10dEl.textContent = ` ${financeEmployees}`;
+  t10dEl.style = 'text-align: center; display: table-cell;'; 
+  let t11dEl = document.createElement('td');
+  tr4El.appendChild(t11dEl);
+  t11dEl.textContent = ` ${finanaceSalary}`;
+  t11dEl.style = 'text-align: center; display: table-cell;';  
+  let t12dEl = document.createElement('td');
+  tr4El.appendChild(t12dEl);
+  t12dEl.textContent = ` ${finanaceSalary/financeEmployees}`;  
+  t12dEl.style = 'text-align: center; display: table-cell;';
+
+
+
+
   let td5El = document.createElement('td');
   tr5El.appendChild(td5El);
   td5El.textContent = 'Total';
+td5El.style = 'font-weight: bold;';
+let t13dEl = document.createElement('td');
+  tr5El.appendChild(t13dEl);
+  t13dEl.textContent = ` ${totalEmployees}`;
+  t13dEl.style = 'text-align: center; display: table-cell;font-weight: bold;'; 
+  let t14dEl = document.createElement('td');
+  tr5El.appendChild(t14dEl);
+  t14dEl.textContent = ` ${totalSalary}`;
+  t14dEl.style = 'text-align: center; display: table-cell;font-weight: bold;'; 
+  let t15dEl = document.createElement('td');
+  tr5El.appendChild(t15dEl);
+  t15dEl.textContent = ` ${(totalSalary/totalEmployees).toFixed(0)}`;
+  t15dEl.style = ' text-align: center; display: table-cell;font-weight: bold;';
 
 }
 render();
